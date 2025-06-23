@@ -24,20 +24,20 @@
 
 ### Задание 1
 
-https://github.com/EscEller/8-01/commit/afac11322cf1e215fc1d5870662e3fe7579454fb
+https://github.com/EscEller/netology-homework/commit/afac11322cf1e215fc1d5870662e3fe7579454fb
 
 ---
 
 ### Задание 2
 
-https://github.com/EscEller/8-01/commit/72a0437ec98601cfdb98f7b44eec2ce1b772cf29
+https://github.com/EscEller/netology-homework/commit/72a0437ec98601cfdb98f7b44eec2ce1b772cf29
 
 ---
 
 ### Задание 3
 
-https://github.com/EscEller/8-01/network
+https://github.com/EscEller/netology-homework/network
 
 ### Задание 4
 
-https://github.com/EscEller/8-01/network
+https://github.com/EscEller/netology-homework/network
