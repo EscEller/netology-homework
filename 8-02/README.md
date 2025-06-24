@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Что такое DevOps. СI/СD`" - `Кузубов Олег`
+# Домашнее задание к занятию "Что такое DevOps. СI/СD" - Кузубов Олег
 
 
 ### Задание 1
@@ -14,7 +14,11 @@
 
 ### Ответ 1
 
-///
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-02/png/1/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-02/png/1/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/8-02/png/1/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/8-02/png/1/4.png)
+![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/8-02/png/1/5.png)
 
 ---
 
@@ -29,7 +33,10 @@
 
 ### Ответ 2
 
-///
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-02/png/2/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-02/png/2/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/8-02/png/2/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/8-02/png/2/4.png)
 
 ---
 
@@ -46,7 +53,16 @@
 
 ### Ответ 3
 
-///
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/4.png)
+![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/5.png)
+![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/6.png)
+![Скриншот-7](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/7.png)
+![Скриншот-8](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/8.png)
+![Скриншот-9](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/9.png)
+![Скриншот-10](https://github.com/EscEller/netology-homework/blob/main/8-02/png/3/10.png)
 
 ---
 
@@ -58,6 +74,12 @@
 
 В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
 
-### Ответ 3
+### Ответ 4
 
-///
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/4.png)
+![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/5.png)
+![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/6.png)
+![Скриншот-7](https://github.com/EscEller/netology-homework/blob/main/8-02/png/4/7.png)
