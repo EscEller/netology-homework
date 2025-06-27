@@ -14,6 +14,7 @@
 ### Ответ 1
 
 ![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-03/png/1/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-03/png/1/2.png)
 
 ---
 
@@ -31,7 +32,33 @@
 
 ### Ответ 2
 
+.gitlab-ci.yaml
+```
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: golang:1.17
+  script:
+   - go test .
+  tags:
+    - neto
+
+build:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
+  tags:
+    - neto
+```
+
 ![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-03/png/2/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-03/png/2/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/8-03/png/2/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/8-03/png/2/4.png)
 
 ---
 
@@ -46,4 +73,39 @@
 
 ### Ответ 3
 
-![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-03/png/1/1.png)
+Тесты запускаюстся сразу, но этап сборки начинается только после заверщения теста:
+
+.gitlab-ci.yaml
+```
+stages:
+  - test
+  - build
+
+test:
+  rules:
+    - changes:
+      - "*.go"
+  stage: test
+  image: golang:1.17
+  script:
+   - go test .
+  tags:
+    - neto
+
+build:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
+  tags:
+    - skip
+  dependencies: []
+  needs: []
+```
+
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/8-03/png/3/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/8-03/png/3/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/8-03/png/3/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/8-03/png/3/4.png)
+![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/8-03/png/3/5.png)
+![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/8-03/png/3/6.png)
