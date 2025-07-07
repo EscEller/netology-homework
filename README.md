@@ -20,3 +20,5 @@
 ## Мониторинг
 
  * [Обзор систем IT-мониторинга](https://github.com/EscEller/netology-homework/blob/main/hw-01/README.md)
+
+ * [Система мониторинга Prometheus](https://github.com/EscEller/netology-homework/blob/main/hw-04/README.md)
