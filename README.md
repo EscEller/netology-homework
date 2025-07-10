@@ -21,4 +21,10 @@
 
  * [Обзор систем IT-мониторинга](https://github.com/EscEller/netology-homework/blob/main/hw-01/README.md)
 
+ * [Система мониторинга Zabbix](https://github.com/EscEller/netology-homework/blob/main/hw-02/README.md)
+
+ * [Система мониторинга Zabbix. Часть 2](https://github.com/EscEller/netology-homework/blob/main/hw-03/README.md)
+
  * [Система мониторинга Prometheus](https://github.com/EscEller/netology-homework/blob/main/hw-04/README.md)
+
+ * [Система мониторинга Prometheus. Часть 2](https://github.com/EscEller/netology-homework/blob/main/hw-05/README.md)
