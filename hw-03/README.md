@@ -49,6 +49,8 @@
 
 ### Ответ 3
 
+Одновременно привязать два шаблона не получилось, так как в созданном шаблоне используются те же items, что и в шаблоне Linux by Zabbix Agent.
+
 ![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/hw-03/png/2.png)
 ![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/hw-03/png/3.png)
 ![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/hw-03/png/4.png)
