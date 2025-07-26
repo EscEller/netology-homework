@@ -29,6 +29,8 @@
 
  * [Система мониторинга Prometheus. Часть 2](https://github.com/EscEller/netology-homework/blob/main/hw-05/README.md)
 
+---
+
 ## Отказоустойчивость
 
  * [Disaster recovery и Keepalived](https://github.com/EscEller/netology-homework/blob/main/sflt-01/README.md)
