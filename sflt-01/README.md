@@ -27,7 +27,9 @@
 ### Ответ 2
 
 [keepalived.conf](https://github.com/EscEller/netology-homework/blob/main/sflt-01/keepalived.conf)
+
 [nginx.sh](https://github.com/EscEller/netology-homework/blob/main/sflt-01/nginx.sh)
+
 ![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/4.png)
 ![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/5.png)
 
