@@ -11,6 +11,7 @@
 ### Ответ 1
 
 [hsrp_advanced_task1.pkt](https://github.com/EscEller/netology-homework/blob/main/sflt-01/hsrp_advanced_task1.pkt)
+
 ![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/1.png)
 ![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/2.png)
 ![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/3.png)
@@ -32,4 +33,5 @@
 
 ![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/4.png)
 ![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/5.png)
+![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/6.png)
 
