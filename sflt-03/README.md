@@ -9,7 +9,7 @@
 
 ### Ответ 1
 
-![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-03/png/1.png)
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-03/content/1.png)
 
 ### Задание 2
 - Написать скрипт и настроить задачу на регулярное резервное копирование домашней директории пользователя с помощью rsync и cron.
@@ -20,9 +20,9 @@
 
 ### Ответ 2
 
-[cron](https://github.com/EscEller/netology-homework/blob/main/sflt-03/cron)
+[cron](https://github.com/EscEller/netology-homework/blob/main/sflt-03/content/cron)
 
-![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-03/png/2.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-03/content/2.png)
 
 ---
 
@@ -38,7 +38,7 @@
 
 ### Ответ 3
 
-![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-03/png/3.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-03/content/3.png)
 
 ### Задание 4*
 - Напишите скрипт, который будет производить инкрементное резервное копирование домашней директории пользователя с помощью rsync на другой сервер
@@ -50,4 +50,4 @@
 
 #Недоделано
 
-[incremental-sync.sh](https://github.com/EscEller/netology-homework/blob/main/sflt-03/incremental-sync.sh)
+[incremental-sync.sh](https://github.com/EscEller/netology-homework/blob/main/sflt-03/content/incremental-sync.sh)

@@ -34,3 +34,9 @@
 ## Отказоустойчивость
 
  * [Disaster recovery и Keepalived](https://github.com/EscEller/netology-homework/blob/main/sflt-01/README.md)
+
+ * [Кластеризация и балансировка нагрузки](https://github.com/EscEller/netology-homework/blob/main/sflt-02/README.md)
+
+ * [Резервное копирование](https://github.com/EscEller/netology-homework/blob/main/sflt-03/README.md)
+
+ * [Отказоустойчивость в облаке](https://github.com/EscEller/netology-homework/blob/main/sflt-04/README.md)

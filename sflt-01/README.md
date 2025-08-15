@@ -10,11 +10,11 @@
 
 ### Ответ 1
 
-[hsrp_advanced_task1.pkt](https://github.com/EscEller/netology-homework/blob/main/sflt-01/hsrp_advanced_task1.pkt)
+[hsrp_advanced_task1.pkt](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/hsrp_advanced_task1.pkt)
 
-![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/1.png)
-![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/2.png)
-![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/3.png)
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/2.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/3.png)
 
  ---
 
@@ -27,11 +27,11 @@
 
 ### Ответ 2
 
-[keepalived.conf](https://github.com/EscEller/netology-homework/blob/main/sflt-01/keepalived.conf)
+[keepalived.conf](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/keepalived.conf)
 
-[nginx.sh](https://github.com/EscEller/netology-homework/blob/main/sflt-01/nginx.sh)
+[nginx.sh](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/nginx.sh)
 
-![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/4.png)
-![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/5.png)
-![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/sflt-01/png/6.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/4.png)
+![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/5.png)
+![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/sflt-01/content/6.png)
 

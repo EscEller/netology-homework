@@ -9,10 +9,10 @@
 
 ### Ответ 1
 
-[haproxi.cfg](https://github.com/EscEller/netology-homework/blob/main/sflt-02/haproxy.cfg)
+[haproxi.cfg](https://github.com/EscEller/netology-homework/blob/main/sflt-02/content/haproxy.cfg)
 
-![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-02/png/1.png)
-![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-02/png/2.png)
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sflt-02/content/1.png)
+![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/sflt-02/content/2.png)
 
 ---
 
@@ -24,7 +24,7 @@
 
 ### Ответ 2
 
-[haproxy.cfg](https://github.com/EscEller/netology-homework/blob/main/sflt-02/haproxy2.cfg)
+[haproxy.cfg](https://github.com/EscEller/netology-homework/blob/main/sflt-02/content/haproxy2.cfg)
 
-![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-02/png/3.png)
-![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/sflt-02/png/4.png)
+![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/sflt-02/content/3.png)
+![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/sflt-02/content/4.png)
