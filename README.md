@@ -19,15 +19,15 @@
 
 ## Мониторинг
 
- * [Обзор систем IT-мониторинга](https://github.com/EscEller/netology-homework/blob/main/hw-01/README.md)
+ * [Обзор систем IT-мониторинга](https://github.com/EscEller/netology-homework/blob/main/smon-01/README.md)
 
- * [Система мониторинга Zabbix](https://github.com/EscEller/netology-homework/blob/main/hw-02/README.md)
+ * [Система мониторинга Zabbix](https://github.com/EscEller/netology-homework/blob/main/smon-02/README.md)
 
- * [Система мониторинга Zabbix. Часть 2](https://github.com/EscEller/netology-homework/blob/main/hw-03/README.md)
+ * [Система мониторинга Zabbix. Часть 2](https://github.com/EscEller/netology-homework/blob/main/smon-03/README.md)
 
- * [Система мониторинга Prometheus](https://github.com/EscEller/netology-homework/blob/main/hw-04/README.md)
+ * [Система мониторинга Prometheus](https://github.com/EscEller/netology-homework/blob/main/smon-04/README.md)
 
- * [Система мониторинга Prometheus. Часть 2](https://github.com/EscEller/netology-homework/blob/main/hw-05/README.md)
+ * [Система мониторинга Prometheus. Часть 2](https://github.com/EscEller/netology-homework/blob/main/smon-05/README.md)
 
 ---
 
@@ -40,3 +40,15 @@
  * [Резервное копирование](https://github.com/EscEller/netology-homework/blob/main/sflt-03/README.md)
 
  * [Отказоустойчивость в облаке](https://github.com/EscEller/netology-homework/blob/main/sflt-04/README.md)
+
+ ---
+
+## Системы хранения и передачи данных
+
+ * [Базы данных, их типы](https://github.com/EscEller/netology-homework/blob/main/sdb-01/README.md)
+
+ * [Кеширование Redis/memcached](https://github.com/EscEller/netology-homework/blob/main/sdb-02/README.md)
+
+ * [ELK](https://github.com/EscEller/netology-homework/blob/main/sdb-03/README.md)
+
+ * [Очереди RabbitMQ](https://github.com/EscEller/netology-homework/blob/main/sdb-04/README.md)
