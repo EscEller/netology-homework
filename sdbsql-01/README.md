@@ -33,4 +33,4 @@
 
 ### Ответ 1
 
-![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sdb-05/content/1.png)
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/sdbsql-05/content/1.png)
