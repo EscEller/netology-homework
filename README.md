@@ -52,3 +52,21 @@
  * [ELK](https://github.com/EscEller/netology-homework/blob/main/sdb-03/README.md)
 
  * [Очереди RabbitMQ](https://github.com/EscEller/netology-homework/blob/main/sdb-04/README.md)
+
+ ---
+
+## Реляционные базы данных и администрирование баз данных
+
+ * [Базы данных](https://github.com/EscEller/netology-homework/blob/main/sdbsql-01/README.md)
+
+ * [Введение в SQL](https://github.com/EscEller/netology-homework/blob/main/sdbsql-02/README.md)
+
+ * [Операции с данными в SQL](https://github.com/EscEller/netology-homework/blob/main/sdbsql-03/README.md)
+
+ * [Расширенные возможности SQL](https://github.com/EscEller/netology-homework/blob/main/sdbsql-04/README.md)
+
+ * [Индексы](https://github.com/EscEller/netology-homework/blob/main/sdbsql-05/README.md)
+
+ * [Репликация и масштабирование. Часть 1](https://github.com/EscEller/netology-homework/blob/main/sdbsql-06/README.md)
+
+
