@@ -69,4 +69,6 @@
 
  * [Репликация и масштабирование. Часть 1](https://github.com/EscEller/netology-homework/blob/main/sdbsql-06/README.md)
 
+ * [Репликация и масштабирование. Часть 1](https://github.com/EscEller/netology-homework/blob/main/sdbsql-07/README.md)
+
 
