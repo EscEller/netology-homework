@@ -70,19 +70,19 @@
 
 
 ### Ответ 2
-# SYN
+#### SYN
 Отправляется пакет с флагом SYN для установки соединения. Ответ SYN/ACK - порт открыт (После происходит сброс соединения RST). Ответ RST/ACK - порт закрыт.
 ![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/4.png)
 ![Скриншот-5](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/5.png)
-# FIN
+#### FIN
 Отправляется пакет с флагом FIN. Ответ RST/ACK - порт закрыт. Если ответа нет - порт открыт|фильтруется. png
 ![Скриншот-6](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/6.png)
 ![Скриншот-7](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/7.png)
-# Xmas
+#### Xmas
 Отправляется пакет с флагами FIN/PSH/URG. Ответ RST/ACK - порт закрыт. Если ответа нет - порт открыт|фильтруется. png
 ![Скриншот-8](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/8.png)
 ![Скриншот-9](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/9.png)
-# UDP
+#### UDP
 Отправляет пустой UDP заголовок на каждый порт. Ответ ICMP ошибка о недостижимости порта (тип 3, код 3) - порт закрыт. Другие ICMP ошибки недостижимости - порт фильтруется. После нескольких попыток без ответа - порт открыт|фильтруется. Ответ UDP - порт открыт.
 ![Скриншот-10](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/10.png)
 ![Скриншот-11](https://github.com/EscEller/netology-homework/blob/main/syssec-01/content/11.png)

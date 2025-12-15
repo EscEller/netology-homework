@@ -71,4 +71,14 @@
 
  * [Репликация и масштабирование. Часть 1](https://github.com/EscEller/netology-homework/blob/main/sdbsql-07/README.md)
 
+---
 
+## Информационная безопасность
+
+ * [Уязвимости и атаки на информационные системы](https://github.com/EscEller/netology-homework/blob/main/syssec-01/README.md)
+
+ * [Защита хоста](https://github.com/EscEller/netology-homework/blob/main/syssec-02/README.md)
+
+ * [Защита сети](https://github.com/EscEller/netology-homework/blob/main/syssec-03/README.md)
+
+ * [Лучшие практики современной информационной безопасности](https://github.com/EscEller/netology-homework/blob/main/syssec-04/README.md)
