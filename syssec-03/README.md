@@ -34,7 +34,7 @@
 Система злоумашленника  -    Ubuntu enp0s8 192.168.56.106
 ![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/syssec-03/content/1.png)
 **sudo nmap -sA 192.168.56.105**
-Suricata не определил какое-либо сканирование
+Suricata не определил какое-либо сканирование.
 **sudo nmap -sT 192.168.56.105**
 Suricata определяет подозрительный входящий трафик на порты: 3306 mySQL, 1433 MSSQL, 5432 PostgreSQL, 1521 Oracle SQL, 47258 nginx c классифицией "Potentionally Bad Traffic" с приоритетом 2. И потенциальное сканирование VNC 5800-5820 с классификацией "Attempted Information Leak" с приоритетом 2.
 **sudo nmap -sS 192.168.56.105**
