@@ -30,7 +30,8 @@
 
 ### Ответ 1
 
-Защищаемая система      -    Ubuntu enp0s3 192.168.56.105
+Защищаемая система      -    Ubuntu enp0s3 192.168.56.105.
+
 Система злоумашленника  -    Ubuntu enp0s8 192.168.56.106
 ![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/syssec-03/content/1.png)
 
@@ -51,7 +52,7 @@ Suricata определяет то же, что и при сканировани
 Suricata определяет похожий трафик, что и при сканировании nmap -sT и nmap -sS, обнаруживает возможной пользовательский агент скриптового движка Nmap с классификацией "Web Application Attack" и приоритетом 1.
 ![Скриншот-2](https://github.com/EscEller/netology-homework/blob/main/syssec-03/content/2.png)
 ![Скриншот-3](https://github.com/EscEller/netology-homework/blob/main/syssec-03/content/3.png)
-Fail2Ban никак не отреагировал. Но, при последнем сканировании, в логах операционной системы появилась информация об ошибке и закрытии соединения атакующим хостом.
+Fail2Ban никак не отреагировал.
 ![Скриншот-4](https://github.com/EscEller/netology-homework/blob/main/syssec-03/content/4.png)
 
 ---
