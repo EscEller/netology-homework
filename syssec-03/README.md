@@ -32,7 +32,7 @@
 
 Защищаемая система      -    Ubuntu enp0s3 192.168.56.105
 Система злоумашленника  -    Ubuntu enp0s8 192.168.56.106
-![Скриншот-1](https://github.com/EscEller/-homework/blob/main/syssec-03/content/1.png)
+![Скриншот-1](https://github.com/EscEller/netology-homework/blob/main/syssec-03/content/1.png)
 **sudo nmap -sA 192.168.56.105**
 Suricata не определил какое-либо сканирование
 **sudo nmap -sT 192.168.56.105**
