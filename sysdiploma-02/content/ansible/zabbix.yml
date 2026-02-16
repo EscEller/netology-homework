@@ -1,0 +1,94 @@
+---
+- hosts: zabbix
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Скачивание репозитория zabbix
+    ansible.builtin.get_url:
+      url: https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu24.04_all.deb 
+      dest: /tmp
+
+  - name: Установка репозитория zabbix
+    ansible.builtin.apt:
+      deb: /tmp/zabbix-release_latest_7.0+ubuntu24.04_all.deb
+      update_cache: yes
+
+  - name: Обновление кэш APT
+    apt:
+      update_cache: yes
+
+  - name: Установка пакетов
+    apt:
+      name: zabbix-server-pgsql, zabbix-frontend-php, zabbix-apache-conf, zabbix-sql-scripts, zabbix-agent, php8.3-pgsql, postgresql, python3-psycopg2, acl
+      state: latest
+
+  - name: Создание пользователя zabbix для подключения
+    community.postgresql.postgresql_user:
+      login_db: postgres
+      name: zabbix
+      password: 123123
+      expires: infinity
+    become: yes
+    become_user: postgres
+
+  - name: Создание БД zabbix для подключения
+    community.postgresql.postgresql_db:
+      maintenance_db: postgres
+      name: zabbix
+      owner: zabbix
+      state: present
+    become: yes
+    become_user: postgres
+
+
+  - name: Скачивание исходников Zabbix
+    get_url:
+      url: https://cdn.zabbix.com/zabbix/sources/stable/7.0/zabbix-7.0.22.tar.gz
+      dest: /tmp/zabbix-7.0.22.tar.gz
+      mode: '0644'
+
+  - name: Распаковка SQL-файлы
+    shell: |
+      mkdir -p /tmp/zabbix-sql
+      tar -xzf /tmp/zabbix-7.0.22.tar.gz -C /tmp/zabbix-sql --strip-components=2 zabbix-7.0.22/database/postgresql/
+
+  - name: Установка расширения PostgreSQL
+    community.postgresql.postgresql_ext:
+      login_user: postgres
+      db: zabbix
+      name: "{{ item }}"
+    loop:
+      - pg_trgm
+      - uuid-ossp
+    become: yes
+    become_user: postgres
+
+  - name: Импорт схемы Zabbix
+    shell: |
+      psql -d zabbix -f /tmp/zabbix-sql/postgresql/schema.sql
+      psql -d zabbix -f /tmp/zabbix-sql/postgresql/images.sql
+      psql -d zabbix -f /tmp/zabbix-sql/postgresql/data.sql
+    become: yes
+    become_user: zabbix
+
+  - name: Добавление пароля БД в zabbix_server.conf
+    ansible.builtin.lineinfile:
+      path: /etc/zabbix/zabbix_server.conf
+      regexp: '^#?DBPassword='
+      line: 'DBPassword=123123'
+      backup: yes
+    become: yes
+
+  - name: Перезагрузка zabbix-server
+    ansible.builtin.service:
+      name: "{{ item }}"
+      state: restarted
+      enabled: yes
+    loop:
+      - zabbix-server
+      - zabbix-agent
+      - postgresql
+      - apache2
+    become: yes

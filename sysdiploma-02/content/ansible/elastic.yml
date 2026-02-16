@@ -1,0 +1,200 @@
+---
+- hosts: kibana, webservers
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Добавление репозитория ELK
+    shell: |
+      apt update && apt install gnupg apt-transport-https
+      wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - 
+      echo "deb [trusted=yes] https://mirror.yandex.ru/mirrors/elastic/9/ stable main" | sudo tee /etc/apt/sources.list.d/elastic-9.x.list
+
+    become: yes
+
+  - name: Обновление кэш APT
+    apt:
+      update_cache: yes
+
+
+- hosts: elastic
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Установка Elasticsearch
+    apt:
+      name: elasticsearch
+      state: latest
+
+  - name: Изменение конфига Elasticsearch
+    shell: |
+      sudo tee /etc/elasticsearch/elasticsearch.yml > /dev/null <<EOF
+      cluster.name: my-cluster
+      node.name: node-1
+      network.host: 0.0.0.0
+      http.port: 9200
+      discovery.type: single-node
+      xpack.security.enabled: false
+      xpack.security.http.ssl.enabled: false
+      xpack.security.transport.ssl.enabled: false
+      EOF
+    become: yes
+
+  - name: Изменение владельца директории
+    ansible.builtin.file:
+      path: /usr/share/elasticsearch/
+      state: directory
+      recurse: yes
+      owner: elasticsearch
+      group: elasticsearch
+      mode: '0774'
+
+  - name: Включение Elasticsearch
+    systemd:
+      name: elasticsearch 
+      enabled: true
+      state: started
+
+
+- hosts: web-vm1, web-vm2
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Установка Filebeat
+    apt:
+      name: filebeat
+      state: latest
+
+  - name: Собрать факты для elastic
+    setup:
+    delegate_to: elastic
+    register: elastic_facts
+
+  - name: Сохранить данные для elastic
+    set_fact:
+      elastic_data:
+        private_ip: "{{ elastic_facts.ansible_facts.ansible_default_ipv4.address }}"
+
+  - name: Собрать факты для kibana
+    setup:
+    delegate_to: kibana
+    register: kibana_facts
+
+  - name: Сохранить данные для kibana
+    set_fact:
+      kibana_data:
+        private_ip: "{{ kibana_facts.ansible_facts.ansible_default_ipv4.address }}"
+
+  - name: Изменение конфига Filebeat
+    shell: |
+      sudo tee /etc/filebeat/filebeat.yml > /dev/null <<'EOF'
+      filebeat.inputs:
+        - type: filestream
+          id: system-logs
+          paths:
+            - /var/log/*.log
+            - /var/log/syslog
+            - /var/log/auth.log
+
+        - type: filestream
+          id: nginx-logs
+          enabled: true
+          paths:
+            - /var/log/nginx/*.log
+          parsers:
+            - ndjson:
+                target: ""
+                overwrite_keys: true
+
+      output.elasticsearch:
+        hosts: ["http://{{ elastic_data.private_ip }}:9200"]
+
+      setup.kibana:
+        host: "http://{{ kibana_data.private_ip }}:5601"
+
+      filebeat.modules:
+        - module: system
+          syslog:
+            enabled: true
+          auth:
+            enabled: true
+      EOF
+      sudo filebeat modules enable system nginx
+      sudo filebeat setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["http://{{ elastic_data.private_ip }}:9200"]'
+      sudo systemctl enable --now filebeat
+    become: yes
+
+
+- hosts: kibana
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Установка kibana
+    apt:
+      name: kibana
+      state: latest
+
+  - name: Собрать факты для elastic
+    setup:
+    delegate_to: elastic
+    register: elastic_facts
+
+  - name: Сохранить данные для elastic
+    set_fact:
+      elastic_data:
+        private_ip: "{{ elastic_facts.ansible_facts.ansible_default_ipv4.address }}"
+
+  - name: Получить публичный IP bastion
+    community.general.ipify_facts:
+    delegate_to: bastion
+    register: bastion_ip_result
+
+  - name: Сохранить данные для bastion
+    set_fact:
+      bastion_data:
+        public_ip: "{{ ipify_public_ip }}"
+
+  - name: Настройка Kibana
+    shell: |
+      sudo useradd -r -s /usr/sbin/nologin -d /home/kibana-tunnel -m kibana-tunnel
+      sudo mkdir -p /home/kibana-tunnel/.ssh
+      sudo chown -R kibana-tunnel:kibana-tunnel /home/kibana-tunnel/.ssh/
+      sudo chmod 755 /home/kibana-tunnel
+      sudo chmod 700 /home/kibana-tunnel/.ssh
+      sudo -u kibana-tunnel ssh-keygen -t ed25519 -f /home/kibana-tunnel/.ssh/id_ed25519 -N ""
+      sudo -u kibana-tunnel ssh-keyscan -H {{ bastion_data.public_ip }} 2>/dev/null | sudo tee /home/kibana-tunnel/.ssh/known_hosts > /dev/null
+      sudo chmod 644 /home/kibana-tunnel/.ssh/known_hosts
+
+      sudo tee /etc/systemd/system/kibana-tunnel.service > /dev/null <<'EOF'
+      [Unit]
+      Description=SSH tunnel to Elasticsearch
+      After=network.target
+
+      [Service]
+      User=kibana-tunnel
+      Group=kibana-tunnel
+      ExecStart=/usr/bin/ssh -o UserKnownHostsFile=/home/kibana-tunnel/.ssh/known_hosts -o ServerAliveInterval=60 -o ServerAliveCountMax=3 -o ExitOnForwardFailure=yes -N -L 9200:{{ elastic_data.private_ip }}:9200 o.kuzubov@{{ bastion_data.public_ip }}
+      Restart=always
+      RestartSec=10
+      Environment="HOME=/home/kibana-tunnel"
+
+      [Install]
+      WantedBy=multi-user.target
+      EOF
+
+      sudo tee /etc/kibana/kibana.yml > /dev/null <<'EOF'
+      server.port: 5601
+      server.host: "0.0.0.0"
+      elasticsearch.hosts: ["http://localhost:9200"]
+      EOF
+      sudo systemctl enable --now kibana
+      sudo systemctl enable --now kibana-tunnel
+
+    become: yes

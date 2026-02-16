@@ -1,0 +1,41 @@
+---
+- hosts: web-vm1, web-vm2
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Обновление кэш APT
+    apt:
+      update_cache: yes
+
+  - name: Установка nginx
+    apt:
+      name: nginx
+      state: latest
+
+  - name: Включение nginx
+    systemd:
+      name: nginx 
+      enabled: true
+      state: started
+
+  - name: Изменение стартовой страницы nginx
+    ansible.builtin.copy:
+      content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Welcome to {{ ansible_hostname }} : {{ ansible_ssh_host }}!</title>
+          </head>
+          <body>
+              <h1>Hello from Netology!</h1>
+              <p>Welcome to {{ ansible_hostname }} : {{ ansible_ssh_host }}!</p>
+          </body>
+          </html>
+      dest: /var/www/html/index.nginx-debian.html
+
+  - name: Перезагрузка nginx
+    ansible.builtin.service:
+      name: nginx
+      state: restarted

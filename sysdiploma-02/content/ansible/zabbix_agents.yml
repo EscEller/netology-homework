@@ -1,0 +1,51 @@
+---
+- hosts: web-vm1, web-vm2
+  become: true
+  vars:
+    ansible_user: o.kuzubov
+  tasks:
+
+  - name: Скачивание репозитория zabbix
+    ansible.builtin.get_url:
+      url: https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu24.04_all.deb 
+      dest: /tmp
+
+  - name: Установка репозитория zabbix
+    ansible.builtin.apt:
+      deb: /tmp/zabbix-release_latest_7.0+ubuntu24.04_all.deb
+      update_cache: yes
+
+  - name: Обновление кэш APT
+    apt:
+      update_cache: yes
+
+  - name: Установка пакетов
+    apt:
+      name: zabbix-agent
+      state: latest
+
+  - name: Добавление имени хоста в zabbix_agentd.conf
+    ansible.builtin.lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^Hostname='
+      line: 'Hostname={{ ansible_hostname }}'
+    become: yes
+
+  - name: Собрать факты для bastion
+    setup:
+    delegate_to: bastion
+    register: bastion_facts
+
+  - name: Добавление IP zabbix-proxy в zabbix_agentd.conf
+    ansible.builtin.lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^ServerActive=127.0.0.1'
+      line: "ServerActive={{ bastion_facts.ansible_facts.ansible_default_ipv4.address }}"
+    become: yes
+
+  - name: Перезагрузка zabbix-agent
+    ansible.builtin.service:
+      name: zabbix-agent
+      state: restarted
+      enabled: yes
+    become: yes
