@@ -113,7 +113,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![vpcmap](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/vpcmap.png)
 
-### <a id="Группы-безопасности">Группы безопасности</a>
+### <a id="группы-безопасности">Группы безопасности</a>
 
 ![sg](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/sg.png)
 
@@ -133,7 +133,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![public-sg](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/public-sg.png)
 
-### <a id="Load-Balancer">Load Balancer</a>
+### <a id="load-balancer">Load Balancer</a>
 
 Создаем Target Group.
 
