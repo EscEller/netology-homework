@@ -9,16 +9,17 @@
     - [Сеть](#Сеть)
     - [Резервное копирование](#Копирование)
 # Выполнение дипломной работы
+# Содержание
 ### Terraform
 - [Инфраструктура](#Инфраструктура2)
-    - [Сеть](#Сеть2)
-    - [Группы безопасности](#Группыбезопасности)
+    - [Сеть](#Сеть-1)
+    - [Группы безопасности](#Группы-безопасности)
     - [Load Balancer](#LoadBalancer)
     - [Резервное копирование](#Копирование2)
 ### Ansible
 - [Nginx](#Nginx)
-- [Мониторинг](#Мониторинг2)
-- [Логи](#Логи2)
+- [Мониторинг](#Мониторинг-1)
+- [Логи](#Логи-1)
     -  [Elasticsearch](#Elasticsearch)
     -  [Kibana](#Kibana)
     -  [Filebeat](#Filebeat)
@@ -35,7 +36,7 @@
 
 **Перед началом работы над дипломным заданием изучите [Инструкция по экономии облачных ресурсов](https://github.com/netology-code/devops-materials/blob/master/cloudwork.MD).**
 
-## <a id="Инфраструктура">Инфраструктура</a>
+## <a id="инфраструктура">Инфраструктура</a>
 Для развёртки инфраструктуры используйте Terraform и Ansible.
 
 Не используйте для ansible inventory ip-адреса! Вместо этого используйте fqdn имена виртуальных машин в зоне ".ru-central1.internal". Пример: example.ru-central1.internal  - для этого достаточно при создании ВМ указать name=example, hostname=examle !!
@@ -66,17 +67,17 @@
 Протестируйте сайт
 `curl -v <публичный IP балансера>:80`
 
-### <a id="Мониторинг">Мониторинг</a>
+### <a id="мониторинг">Мониторинг</a>
 Создайте ВМ, разверните на ней Zabbix. На каждую ВМ установите Zabbix Agent, настройте агенты на отправление метрик в Zabbix.
 
 Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
 
-### <a id="Логи">Логи</a>
+### <a id="логи">Логи</a>
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
 
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
 
-### <a id="Сеть">Сеть</a>
+### <a id="сеть">Сеть</a>
 Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
 
 Настройте [Security Groups](https://cloud.yandex.com/docs/vpc/concepts/security-groups) соответствующих сервисов на входящий трафик только к нужным портам.
@@ -94,7 +95,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## Terraform
 
-### <a id="Инфраструктура2">Инфраструктура</a>
+### <a id="инфраструктура2">Инфраструктура</a>
 
 Поднимаем инфраструктуру в Yandex Cloud, используя **Terraform**. Запускаем процесс поднятия инфраструктуры командой `terraform apply` в конце выполнения получаем данные output, которые мы прописывали в файле **outputs.tf**.
 
@@ -104,7 +105,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![vms](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/vms.png)
 
-### <a id="Сеть2">Сеть</a>
+### <a id="сеть-1">Сеть</a>
 
 **VPC и subnet**
 
@@ -112,7 +113,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![vpcmap](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/vpcmap.png)
 
-### <a id="Группыбезопасности">Группы безопасности</a>
+### <a id="Группы-безопасности">Группы безопасности</a>
 
 ![sg](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/sg.png)
 
@@ -132,7 +133,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![public-sg](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/public-sg.png)
 
-### <a id="LoadBalancer">Load Balancer</a>
+### <a id="Load-Balancer">Load Balancer</a>
 
 Создаем Target Group.
 
@@ -173,7 +174,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![inventory](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/inventory.png)
 
-### Установка Nginx и загрузка сайта
+### Установка и конфигурация Nginx
 
 Устанавливаем **Nginx**, меняем web страницы.
 
@@ -189,7 +190,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![curl](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/curl.png)
 
-### <a id="Мониторинг2">Мониторинг</a>
+### <a id="мониторинг2">Мониторинг</a>
 
 Устанавливаем **Zabbix сервер**.
 
@@ -217,7 +218,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![dashboard](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/dashboard.png)
 
-## <a id="Логи2">Логи</a>
+## <a id="логи2">Логи</a>
 
 ### Elasticsearch
 
