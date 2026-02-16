@@ -3,10 +3,10 @@ data "yandex_compute_image" "ubuntu_2204_lts" {
 }
 
 resource "yandex_compute_instance" "bastion" {
-  name        = "bastion" # Имя ВМ в облачной консоли
-  hostname    = "bastion" # формирует FDQN имя хоста, без hostname будет сгенрировано случаное имя.
+  name        = "bastion"
+  hostname    = "bastion"
   platform_id = "standard-v3"
-  zone        = "ru-central1-a" # зона ВМ должна совпадать с зоной subnet!!!
+  zone        = "ru-central1-a"
   allow_stopping_for_update = true
 
   resources {
@@ -40,8 +40,8 @@ resource "yandex_compute_instance" "bastion" {
 
 resource "yandex_compute_instance" "zabbix" {
 
-  name        = "zabbix" # Имя ВМ в облачной консоли
-  hostname    = "zabbix" # формирует FDQN имя хоста, без hostname будет сгенрировано случаное имя.
+  name        = "zabbix"
+  hostname    = "zabbix"
   platform_id = "standard-v3"
   zone        = "ru-central1-a"
   allow_stopping_for_update = true
@@ -77,8 +77,8 @@ resource "yandex_compute_instance" "zabbix" {
 
 resource "yandex_compute_instance" "kibana" {
 
-  name        = "kibana" # Имя ВМ в облачной консоли
-  hostname    = "kibana" # формирует FDQN имя хоста, без hostname будет сгенрировано случаное имя.
+  name        = "kibana"
+  hostname    = "kibana"
   platform_id = "standard-v3"
   zone        = "ru-central1-a"
   allow_stopping_for_update = true
@@ -114,8 +114,8 @@ resource "yandex_compute_instance" "kibana" {
 
 resource "yandex_compute_instance" "elastic" {
 
-  name        = "elastic" # Имя ВМ в облачной консоли
-  hostname    = "elastic" # формирует FDQN имя хоста, без hostname будет сгенрировано случаное имя.
+  name        = "elastic"
+  hostname    = "elastic"
   platform_id = "standard-v3"
   zone        = "ru-central1-a"
   allow_stopping_for_update = true
@@ -151,10 +151,10 @@ resource "yandex_compute_instance" "elastic" {
 
 resource "yandex_compute_instance" "web-vm1" {
 
-  name        = "web-vm1" # Имя ВМ в облачной консоли
-  hostname    = "web-vm1" # формирует FDQN имя хоста, без hostname будет сгенрировано случаное имя.
+  name        = "web-vm1"
+  hostname    = "web-vm1"
   platform_id = "standard-v3"
-  zone        = "ru-central1-a" # зона ВМ должна совпадать с зоной subnet!!!
+  zone        = "ru-central1-a"
   allow_stopping_for_update = true
 
   resources {
@@ -188,10 +188,10 @@ resource "yandex_compute_instance" "web-vm1" {
 
 resource "yandex_compute_instance" "web-vm2" {
 
-  name        = "web-vm2" # Имя ВМ в облачной консоли
-  hostname    = "web-vm2" # формирует FDQN имя хоста, без hostname будет сгенрировано случаное имя.
+  name        = "web-vm2"
+  hostname    = "web-vm2"
   platform_id = "standard-v3"
-  zone        = "ru-central1-b" # зона ВМ должна совпадать с зоной subnet!!!
+  zone        = "ru-central1-b"
   allow_stopping_for_update = true
 
   resources {
