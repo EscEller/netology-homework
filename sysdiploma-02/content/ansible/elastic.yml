@@ -1,5 +1,5 @@
 ---
-- hosts: kibana, webservers
+- hosts: kibana, elastic, webservers
   become: true
   vars:
     ansible_user: o.kuzubov
