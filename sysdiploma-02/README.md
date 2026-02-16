@@ -7,16 +7,16 @@
     - [Мониторинг](#Мониторинг)
     - [Логи](#Логи)
     - [Сеть](#Сеть)
-    - [Резервное_копирование](#Копирование)
+    - [Резервное копирование](#Копирование)
 # Выполнение дипломной работы
 ### Terraform
-- [Инфраструктура](#Инфраструктура)
-    - [Сеть](#Сеть)
-    - [Группы_безопасности](#Группы_безопасности)
-    - [Load_Balancer](#Load_Balancer)
-    - [Резервное_копирование](#Копирование2)
+- [Инфраструктура](#Инфраструктура2)
+    - [Сеть](#Сеть2)
+    - [Группы безопасности](#Группыбезопасности)
+    - [Load Balancer](#LoadBalancer)
+    - [Резервное копирование](#Копирование2)
 ### Ansible
-- [NGINX](#Nginx)
+- [Nginx](#Nginx)
 - [Мониторинг](#Мониторинг2)
 - [Логи](#Логи2)
     -  [Elasticsearch](#Elasticsearch)
@@ -35,7 +35,7 @@
 
 **Перед началом работы над дипломным заданием изучите [Инструкция по экономии облачных ресурсов](https://github.com/netology-code/devops-materials/blob/master/cloudwork.MD).**
 
-## Инфраструктура
+## <a id="Инфраструктура">Инфраструктура</a>
 Для развёртки инфраструктуры используйте Terraform и Ansible.
 
 Не используйте для ansible inventory ip-адреса! Вместо этого используйте fqdn имена виртуальных машин в зоне ".ru-central1.internal". Пример: example.ru-central1.internal  - для этого достаточно при создании ВМ указать name=example, hostname=examle !!
@@ -66,17 +66,17 @@
 Протестируйте сайт
 `curl -v <публичный IP балансера>:80`
 
-### Мониторинг
+### <a id="Мониторинг">Мониторинг</a>
 Создайте ВМ, разверните на ней Zabbix. На каждую ВМ установите Zabbix Agent, настройте агенты на отправление метрик в Zabbix.
 
 Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
 
-### Логи
+### <a id="Логи">Логи</a>
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к веб-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
 
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
 
-### Сеть
+### <a id="Сеть">Сеть</a>
 Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
 
 Настройте [Security Groups](https://cloud.yandex.com/docs/vpc/concepts/security-groups) соответствующих сервисов на входящий трафик только к нужным портам.
@@ -85,7 +85,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Исходящий доступ в интернет для ВМ внутреннего контура через [NAT-шлюз](https://yandex.cloud/ru/docs/vpc/operations/create-nat-gateway).``
 
-### <a id="копирование">Резервное_копирование</a>
+### <a id="копирование">Резервное копирование</a>
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
 
 ---
@@ -94,7 +94,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## Terraform
 
-### Инфраструктура
+### <a id="Инфраструктура2">Инфраструктура</a>
 
 Поднимаем инфраструктуру в Yandex Cloud, используя **Terraform**. Запускаем процесс поднятия инфраструктуры командой `terraform apply` в конце выполнения получаем данные output, которые мы прописывали в файле **outputs.tf**.
 
@@ -104,7 +104,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![vms](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/vms.png)
 
-### Сеть
+### <a id="Сеть2">Сеть</a>
 
 **VPC и subnet**
 
@@ -112,7 +112,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![vpcmap](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/vpcmap.png)
 
-### Группы_безопасности
+### <a id="Группыбезопасности">Группы безопасности</a>
 
 ![sg](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/sg.png)
 
@@ -132,7 +132,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![public-sg](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/public-sg.png)
 
-### Load_Balancer
+### <a id="LoadBalancer">Load Balancer</a>
 
 Создаем Target Group.
 
@@ -154,7 +154,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![listener](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/listener.png)
 
-### <a id="копирование2">Резервное_копирование</a>
+### <a id="копирование2">Резервное копирование</a>
 
 Создаем в **Terraform** блок с расписанием резервного копирования snapshots.
 
@@ -167,7 +167,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ### Ansible
 
-### Установка и настройка ansible
+### Установка и настройка Ansible
 
 Устанавливаем **Ansible** на локальном хосте где работали с **Terraform** и настраиваем его на работу через **bastion**. Создаем inventory файл hosts.ini c использованием FQDN имен серверов.
 
