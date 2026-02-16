@@ -7,18 +7,18 @@
     - [Мониторинг](#Мониторинг)
     - [Логи](#Логи)
     - [Сеть](#Сеть)
-    - [Резервное_копирование](#Резервное_копирование)
+    - [Резервное_копирование](#Копирование)
 # Выполнение дипломной работы
 ### Terraform
 - [Инфраструктура](#Инфраструктура)
     - [Сеть](#Сеть)
     - [Группы_безопасности](#Группы_безопасности)
     - [Load_Balancer](#Load_Balancer)
-    - [Резервное_копирование](#Резервное_копирование)
+    - [Резервное_копирование](#Копирование2)
 ### Ansible
-- [NGINX](#NGINX)
-- [Мониторинг](#Мониторинг)
-- [Логи](#Логи)
+- [NGINX](#Nginx)
+- [Мониторинг](#Мониторинг2)
+- [Логи](#Логи2)
     -  [Elasticsearch](#Elasticsearch)
     -  [Kibana](#Kibana)
     -  [Filebeat](#Filebeat)
@@ -85,7 +85,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Исходящий доступ в интернет для ВМ внутреннего контура через [NAT-шлюз](https://yandex.cloud/ru/docs/vpc/operations/create-nat-gateway).``
 
-### Резервное_копирование
+### <a id="копирование">Резервное_копирование</a>
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
 
 ---
@@ -154,7 +154,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![listener](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/listener.png)
 
-### Резервное_копирование
+### <a id="копирование2">Резервное_копирование</a>
 
 Создаем в **Terraform** блок с расписанием резервного копирования snapshots.
 
@@ -189,7 +189,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![curl](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/curl.png)
 
-### Мониторинг
+### <a id="Мониторинг2">Мониторинг</a>
 
 Устанавливаем **Zabbix сервер**.
 
@@ -217,7 +217,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![dashboard](https://github.com/EscEller/netology-homework/blob/main/sysdiploma-02/content/dashboard.png)
 
-## Логи
+## <a id="Логи2">Логи</a>
 
 ### Elasticsearch
 
